@@ -6,4 +6,4 @@ import { FacturasController } from './facturas.controller';
   controllers: [FacturasController],
   providers: [FacturasService],
 })
-export class FacturasModule {}
+export class FacturasModule { }
