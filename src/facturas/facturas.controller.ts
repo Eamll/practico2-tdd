@@ -13,7 +13,7 @@ import { UpdateFacturaDto } from './dto/update-factura.dto';
 
 @Controller('facturas')
 export class FacturasController {
-    constructor(private readonly facturasService: FacturasService) {}
+    constructor(private readonly facturasService: FacturasService) { }
 
     @Post()
     create(@Body() createFacturaDto: CreateFacturaDto) {
