@@ -1,13 +1,13 @@
-import { Cliente } from "./cliente.entity";
-import { Descuentos } from "./descuentos.entity";
-import { Producto } from "./producto.entity";
+import { ICliente } from "./cliente.entity";
+import { IDescuentos } from "./descuentos.entity";
+import { IProducto } from "./producto.entity";
 
-export class Factura {
-    cliente: Cliente;
-    productos: Producto[];
+export interface IFactura {
+    cliente: ICliente;
+    productos: IProducto[];
     almacen: string;
     condicionPago: string;
     formaEntrega: string;
-    descuentos: Descuentos;
+    descuentos: IDescuentos;
     total: number; // Calculado después de aplicar descuentos
 }

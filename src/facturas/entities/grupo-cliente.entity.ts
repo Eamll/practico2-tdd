@@ -1,4 +1,4 @@
-export class GrupoCliente {
+export interface IGrupoCliente {
     nombre: string;
     porcentajeDescuento: number;
 }
