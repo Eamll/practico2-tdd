@@ -1,6 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable, Column, OneToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 import { IFactura, IProductosFactura } from "../interfaces/IFactura";
-import { Cliente } from "./cliente.entity";
 
 @Entity("facturas")
 export class Factura implements IFactura {
