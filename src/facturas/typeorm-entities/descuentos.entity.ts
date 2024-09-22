@@ -3,8 +3,8 @@ import { IDescuentos } from "../interfaces/IDescuentos";
 
 @Entity()
 export class Descuentos implements IDescuentos {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    descuentos_id: string;
 
     @Column('float', { default: 0 })
     nivelItem: number;

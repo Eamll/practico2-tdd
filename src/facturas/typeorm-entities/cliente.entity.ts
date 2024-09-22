@@ -4,8 +4,8 @@ import { GrupoCliente } from './grupo-cliente.entity';
 
 @Entity()
 export class Cliente implements ICliente {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    cliente_id: string;
 
     @Column()
     codigo: string;

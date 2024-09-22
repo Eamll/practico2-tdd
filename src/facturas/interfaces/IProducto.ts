@@ -1,4 +1,5 @@
 export interface IProducto {
+    producto_id: string;
     codigo: string;
     nombre: string;
     tipo: ITipoProducto;

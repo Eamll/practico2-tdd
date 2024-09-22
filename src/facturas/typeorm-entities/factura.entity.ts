@@ -3,11 +3,12 @@ import { IFactura } from "../interfaces/IFactura";
 import { Cliente } from "./cliente.entity";
 import { Producto } from "./producto.entity";
 import { IDescuentos } from "../interfaces/IDescuentos";
+import { Descuentos } from "./descuentos.entity";
 
 @Entity()
 export class Factura implements IFactura {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    factura_id: string;
 
     @ManyToOne(() => Cliente, { eager: true })
     cliente: Cliente;

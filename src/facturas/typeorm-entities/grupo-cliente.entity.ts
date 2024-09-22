@@ -4,8 +4,8 @@ import { IGrupoCliente } from '../interfaces/IGrupoCliente';
 
 @Entity()
 export class GrupoCliente implements IGrupoCliente {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    grupo_cliente_id: string;
 
     @Column()
     nombre: string;

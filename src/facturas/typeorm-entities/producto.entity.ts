@@ -3,8 +3,8 @@ import { IProducto, ITipoProducto } from "../interfaces/IProducto";
 
 @Entity()
 export class Producto implements IProducto {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    producto_id: string;
 
     @Column()
     codigo: string;
