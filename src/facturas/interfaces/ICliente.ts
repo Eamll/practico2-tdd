@@ -1,4 +1,4 @@
-import { IGrupoCliente } from "./grupo-cliente.entity";
+import { IGrupoCliente } from "./IGrupoCliente";
 
 export interface ICliente {
     codigo: string;

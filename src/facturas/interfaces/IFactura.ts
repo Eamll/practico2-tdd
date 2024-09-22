@@ -1,6 +1,6 @@
-import { ICliente } from "./cliente.entity";
-import { IDescuentos } from "./descuentos.entity";
-import { IProducto } from "./producto.entity";
+import { ICliente } from "./ICliente";
+import { IDescuentos } from "./IDescuentos";
+import { IProducto } from "./IProducto";
 
 export interface IFactura {
     cliente: ICliente;
