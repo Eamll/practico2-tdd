@@ -6,6 +6,7 @@ import { Repository } from 'typeorm';
 import { Factura } from './typeorm-entities/factura.entity';
 import { Cliente } from './typeorm-entities/cliente.entity';
 import { Producto } from './typeorm-entities/producto.entity';
+import { GrupoCliente } from './typeorm-entities/grupo-cliente.entity';
 
 @Injectable()
 export class FacturasService {
@@ -14,6 +15,8 @@ export class FacturasService {
         private facturasRepository: Repository<Factura>,
         @InjectRepository(Cliente)
         private clientesRepository: Repository<Cliente>,
+        @InjectRepository(GrupoCliente)
+        private grupoClientesRepository: Repository<GrupoCliente>,
         @InjectRepository(Producto)
         private productosRepository: Repository<Producto>,
 
@@ -26,7 +29,7 @@ export class FacturasService {
             { where: { cliente_id: createFacturaDto.cliente_id } },
         );
 
-        const grupoCliente = await this.clientesRepository.findOne(
+        const grupoCliente = await this.grupoClientesRepository.findOne(
             { where: { grupo_cliente_id: cliente.grupo_cliente_id } },
         );
 
