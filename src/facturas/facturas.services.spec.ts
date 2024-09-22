@@ -44,7 +44,6 @@ describe('FacturasService', () => {
     describe('create', () => {
         it('should create a new factura', async () => {
             const createFacturaDto: CreateFacturaDto = {
-                factura_id: '',
                 cliente: undefined,
                 productos: [],
                 almacen: '',
