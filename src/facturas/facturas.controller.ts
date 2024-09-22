@@ -25,21 +25,21 @@ export class FacturasController {
         return this.facturasService.findAll();
     }
 
-    @Get(':id')
-    findOne(@Param('id') id: string) {
-        return this.facturasService.findOne(+id);
+    @Get(':factura_id')
+    findOne(@Param('factura_id') factura_id: string) {
+        return this.facturasService.findOne(factura_id);
     }
 
-    @Patch(':id')
+    @Patch(':factura_id')
     update(
-        @Param('id') id: string,
+        @Param('factura_id') factura_id: string,
         @Body() updateFacturaDto: UpdateFacturaDto,
     ) {
-        return this.facturasService.update(+id, updateFacturaDto);
+        return this.facturasService.update(factura_id, updateFacturaDto);
     }
 
-    @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.facturasService.remove(+id);
+    @Delete(':factura_id')
+    remove(@Param('factura_id') factura_id: string) {
+        return this.facturasService.remove(factura_id);
     }
 }

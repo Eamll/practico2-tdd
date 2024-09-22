@@ -1,26 +1,36 @@
 import { Injectable } from '@nestjs/common';
 import { CreateFacturaDto } from './dto/create-factura.dto';
 import { UpdateFacturaDto } from './dto/update-factura.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Factura } from './typeorm-entities/factura.entity';
 
 @Injectable()
 export class FacturasService {
-    create(createFacturaDto: CreateFacturaDto) {
-        return 'This action adds a new factura';
+    constructor(
+        @InjectRepository(Factura)
+        private facturasRepository: Repository<Factura>,
+    ) { }
+
+    async create(createFacturaDto: CreateFacturaDto): Promise<Factura> {
+        const factura = this.facturasRepository.create(createFacturaDto);
+        return await this.facturasRepository.save(factura);
     }
 
-    findAll() {
-        return `This action returns all facturas`;
+    async findAll(): Promise<Factura[]> {
+        return await this.facturasRepository.find();
     }
 
-    findOne(id: number) {
-        return `This action returns a #${id} factura`;
+    async findOne(id: string): Promise<Factura> {
+        return await this.facturasRepository.findOne({ where: { factura_id: id } });
     }
 
-    update(id: number, updateFacturaDto: UpdateFacturaDto) {
-        return `This action updates a #${id} factura`;
+    async update(id: string, updateFacturaDto: UpdateFacturaDto): Promise<Factura> {
+        await this.facturasRepository.update(id, updateFacturaDto);
+        return this.findOne(id);
     }
 
-    remove(id: number) {
-        return `This action removes a #${id} factura`;
+    async remove(id: string): Promise<void> {
+        await this.facturasRepository.delete(id);
     }
 }
