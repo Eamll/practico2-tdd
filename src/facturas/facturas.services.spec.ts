@@ -44,22 +44,24 @@ describe('FacturasService', () => {
     describe('create', () => {
         it('should create a new factura', async () => {
             const createFacturaDto: CreateFacturaDto = {
-                cliente: undefined,
+                cliente_id: '',
                 productos: [],
                 almacen: '',
-                condicionPago: '',
-                formaEntrega: '',
-                descuentos: undefined,
+                condicion_pago: '',
+                forma_entrega: '',
+                descuento: 0,
+                impuesto: 0,
                 total: 0
             };
             const factura: Factura = {
                 factura_id: '',
-                cliente: new Cliente,
+                cliente_id: '',
                 productos: [],
                 almacen: '',
-                condicionPago: '',
-                formaEntrega: '',
-                descuentos: undefined,
+                condicion_pago: '',
+                forma_entrega: '',
+                descuento: 0,
+                impuesto: 0,
                 total: 0
             };
             repository.create.mockReturnValue(factura);
@@ -75,12 +77,13 @@ describe('FacturasService', () => {
         it('should return an array of facturas', async () => {
             const factura: Factura = {
                 factura_id: '',
-                cliente: new Cliente,
+                cliente_id: '',
                 productos: [],
                 almacen: '',
-                condicionPago: '',
-                formaEntrega: '',
-                descuentos: undefined,
+                condicion_pago: '',
+                forma_entrega: '',
+                descuento: 0,
+                impuesto: 0,
                 total: 0
             };
             repository.find.mockResolvedValue([factura]);
@@ -94,12 +97,13 @@ describe('FacturasService', () => {
         it('should return a single factura', async () => {
             const factura: Factura = {
                 factura_id: '',
-                cliente: new Cliente,
+                cliente_id: '',
                 productos: [],
                 almacen: '',
-                condicionPago: '',
-                formaEntrega: '',
-                descuentos: undefined,
+                condicion_pago: '',
+                forma_entrega: '',
+                descuento: 0,
+                impuesto: 0,
                 total: 0
             };
             repository.findOne.mockResolvedValue(factura);
@@ -116,12 +120,13 @@ describe('FacturasService', () => {
             };
             const factura: Factura = {
                 factura_id: '',
-                cliente: new Cliente,
+                cliente_id: '',
                 productos: [],
                 almacen: '',
-                condicionPago: '',
-                formaEntrega: '',
-                descuentos: undefined,
+                condicion_pago: '',
+                forma_entrega: '',
+                descuento: 0,
+                impuesto: 0,
                 total: 0
             };
             repository.update.mockResolvedValue(null);

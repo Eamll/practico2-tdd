@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { IProducto, ITipoProducto } from "../interfaces/IProducto";
 
-@Entity()
+@Entity("productos")
 export class Producto implements IProducto {
     @PrimaryGeneratedColumn('uuid')
     producto_id: string;

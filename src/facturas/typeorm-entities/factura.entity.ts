@@ -1,35 +1,34 @@
 import { Entity, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable, Column, OneToOne, JoinColumn } from "typeorm";
-import { IFactura } from "../interfaces/IFactura";
+import { IFactura, IProductosFactura } from "../interfaces/IFactura";
 import { Cliente } from "./cliente.entity";
-import { Producto } from "./producto.entity";
-import { IDescuentos } from "../interfaces/IDescuentos";
-import { Descuentos } from "./descuentos.entity";
 
-@Entity()
+@Entity("facturas")
 export class Factura implements IFactura {
     @PrimaryGeneratedColumn('uuid')
     factura_id: string;
 
-    @ManyToOne(() => Cliente, { eager: true })
-    cliente: Cliente;
+    @Column("uuid")
+    cliente_id: string;
 
-    @ManyToMany(() => Producto, { eager: true })
-    @JoinTable()
-    productos: Producto[];
+    @Column("jsonb", { default: [] })
+    productos: IProductosFactura[];
 
-    @Column()
+    @Column("text")
     almacen: string;
 
-    @Column()
-    condicionPago: string;
+    @Column("text")
+    condicion_pago: string;
 
-    @Column()
-    formaEntrega: string;
+    @Column("text")
+    forma_entrega: string;
 
-    @OneToOne(() => Descuentos, { eager: true, cascade: true })
-    @JoinColumn()
-    descuentos: IDescuentos;
+    @Column("float", { default: 0 })
+    descuento: number;
 
-    @Column('float')
+    @Column("float", { default: 0 })
+    impuesto: number;
+
+    @Column("float", { default: 0 })
     total: number;
+
 }

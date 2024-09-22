@@ -1,7 +1,7 @@
-import { IsNumber, IsString, IsUUID } from "class-validator";
+import { IsArray, IsNumber, IsString, IsUUID } from "class-validator";
 import { ICliente } from "../interfaces/ICliente";
 import { IDescuentos } from "../interfaces/IDescuentos";
-import { ICreateFactura, IFactura } from "../interfaces/IFactura";
+import { ICreateFactura, IFactura, IProductosFactura } from "../interfaces/IFactura";
 import { IProducto } from "../interfaces/IProducto";
 import { Cliente } from "../typeorm-entities/cliente.entity";
 import { Type } from "class-transformer";
@@ -9,23 +9,26 @@ import { Producto } from "../typeorm-entities/producto.entity";
 import { Descuentos } from "../typeorm-entities/descuentos.entity";
 
 export class CreateFacturaDto implements ICreateFactura {
-    @Type(() => Cliente)
-    cliente: ICliente;
+    @IsUUID()
+    cliente_id: string;
 
-    @Type(() => Producto)
-    productos: IProducto[];
+    @IsArray()
+    productos: IProductosFactura[];
 
     @IsString()
     almacen: string;
 
     @IsString()
-    condicionPago: string;
+    condicion_pago: string;
 
     @IsString()
-    formaEntrega: string;
+    forma_entrega: string;
 
-    @Type(() => Descuentos)
-    descuentos: IDescuentos;
+    @IsNumber()
+    descuento: number;
+
+    @IsNumber()
+    impuesto: number;
 
     @IsNumber()
     total: number;

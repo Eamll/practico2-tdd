@@ -1,24 +1,29 @@
-import { ICliente } from "./ICliente";
-import { IDescuentos } from "./IDescuentos";
-import { IProducto } from "./IProducto";
-
 export interface IFactura {
     factura_id: string;
-    cliente: ICliente;
-    productos: IProducto[];
+    cliente_id: string;
+    productos: IProductosFactura[];
     almacen: string;
-    condicionPago: string;
-    formaEntrega: string;
-    descuentos: IDescuentos;
-    total: number; // Calculado después de aplicar descuentos
+    condicion_pago: string;
+    forma_entrega: string;
+    descuento: number;
+    impuesto: number;
+    total: number;
 }
 
 export interface ICreateFactura {
-    cliente: ICliente;
-    productos: IProducto[];
+    cliente_id: string;
+    productos: IProductosFactura[];
     almacen: string;
-    condicionPago: string;
-    formaEntrega: string;
-    descuentos: IDescuentos;
+    condicion_pago: string;
+    forma_entrega: string;
+    descuento: number;
+    impuesto: number;
     total: number;
+}
+
+export interface IProductosFactura {
+    producto_id: string;
+    cantidad: number;
+    precio: number;
+    descuento: number;
 }

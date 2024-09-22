@@ -4,5 +4,5 @@ export interface ICliente {
     cliente_id: string;
     codigo: string;
     nombre: string;
-    grupo: IGrupoCliente;
+    grupo_cliente_id: string;
 }
