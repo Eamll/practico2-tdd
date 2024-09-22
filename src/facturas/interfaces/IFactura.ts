@@ -12,3 +12,13 @@ export interface IFactura {
     descuentos: IDescuentos;
     total: number; // Calculado después de aplicar descuentos
 }
+
+export interface ICreateFactura {
+    cliente: ICliente;
+    productos: IProducto[];
+    almacen: string;
+    condicionPago: string;
+    formaEntrega: string;
+    descuentos: IDescuentos;
+    total: number;
+}
